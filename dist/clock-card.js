@@ -130,7 +130,7 @@ class ClockCard extends HTMLElement {
                 var local_hour = now.getHours();
                 if (config && config.time_zone) {
                     try {
-                        var local_hour = parseInt(now.toLocaleString(navigator.language, { hour: '2-digit', hour12: true, timeZone: config.time_zone }).substr(0, 2));
+                        var local_hour = parseInt(now.toLocaleString(navigator.language, { hour: '2-digit', hour12: true, timeZone: config.time_zone }).replaceAll(/\D+/g,'')
                     }
                     catch{
                         console.log("Analog Clock: Invalid timezone")
